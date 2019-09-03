@@ -78,4 +78,8 @@ export class AuthenticationService {
 		return this.http.post(this.backEndHost + '/tasks', task,
 			{headers : new HttpHeaders({'Authorization' : this.jwtToken})});
 	}
+
+	saveUser(user) {
+		return this.http.post(this.backEndHost + '/register', user);
+	}
 }

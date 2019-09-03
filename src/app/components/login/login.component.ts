@@ -28,4 +28,9 @@ export class LoginComponent implements OnInit {
 			});
 	}
 
+	onRegister() {
+		this.authenticationService.logout();
+		this.router.navigateByUrl('/register');
+	}
+
 }
