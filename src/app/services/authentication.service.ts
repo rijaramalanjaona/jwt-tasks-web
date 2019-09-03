@@ -66,11 +66,16 @@ export class AuthenticationService {
 		 *   ]
 		 * }
 		 */
-		for (let role of this.roles) {
+		for (const role of this.roles) {
 			if (role.authority === 'ADMIN') {
 				return true;
 			}
 		}
 		return false;
+	}
+
+	saveTask(task) {
+		return this.http.post(this.backEndHost + '/tasks', task,
+			{headers : new HttpHeaders({'Authorization' : this.jwtToken})});
 	}
 }
