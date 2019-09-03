@@ -3,16 +3,34 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from './components/login/login.component';
+import { RouterModule, Routes} from '@angular/router';
+import { NewTaskComponent } from './components/new-task/new-task.component';
+import { TasksComponent } from './components/tasks/tasks.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+
+const appRoutes: Routes = [
+	{path: 'login', component: LoginComponent},
+	{path: 'tasks', component: TasksComponent},
+	{path: 'new-task', component: NewTaskComponent},
+	{path: 'register', component: RegistrationComponent},
+	{path: '', redirectTo: '/login', pathMatch: 'full'}
+];
 
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		LoginComponent,
+		TasksComponent,
+		NewTaskComponent,
+		RegistrationComponent
+	],
+	imports: [
+		BrowserModule,
+		RouterModule.forRoot(appRoutes)
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
